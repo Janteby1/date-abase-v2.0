@@ -14,29 +14,26 @@ from .models import UserProfile, Dates
 # Create your views here.
 class Index(View):
     def get(self, request):
-        # create blank conext incase someone isnt signed in already 
-        context = {}
-        # check to see if someone is already logged in
-        if request.user.is_authenticated(): 
-            # get their username  
-            username = request.user.username
-            message = ("Hello, " + username)
-            # send them a greating so they know they are signed in 
-            context = {
-                'message': message,}
+        user_creation_form = UserForm()
+        add_date_form = AddDateForm()
+        search_date_form_category = SearchDateForm()
+        search_date_form_area = SearchDateForm_Area()
+        search_date_form_price = SearchDateForm_Price()
 
-        # this line gets all the posts that we have in the db and orders them by most recent
-        dates = Dates.objects.filter(show=True).order_by('-count')[:15]
-        # put all the dates into a context dict
-        context ["dates"] = dates
+        context = {
+            'user_creation_form': user_creation_form,
+            "add_date_form":add_date_form,
+            "search_date_form_category":search_date_form_category,
+            "search_date_form_area":search_date_form_area,
+            "search_date_form_price": search_date_form_price,
+            }
 
-        # send them all to the template
         return render(request, "index.html", context)
 
 
-class About(View):
-    def get(self, request):
-        return render(request, "about.html")
+# class About(View):
+#     def get(self, request):
+#         return render(request, "about.html")
 
 
         

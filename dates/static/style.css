@@ -1,0 +1,48 @@
+#answer_div {
+	margin-left: 1em;
+}
+
+.brand-logo {
+	padding-left: 1em !important; 
+}
+
+.parallax-container {
+	height: 50vh;
+	margin-left: -3em; 
+	margin-right: -3em;
+}
+
+form {
+	margin-right: 3em;
+	margin-left: 3em;
+}
+
+.username {
+	font-style: italic;
+}
+
+#welcome {
+	color: #1e88e5;
+}
+
+#likes {
+	text-align: right;
+}
+
+#search_button {
+	margin-left: 1em;
+}
+
+.tag {
+	font-weight: bold;
+}
+
+#footer {
+	float:right;
+	margin-right:3em;
+	font-style: italic;
+}
+
+#home {
+	margin-left:3em;
+}
