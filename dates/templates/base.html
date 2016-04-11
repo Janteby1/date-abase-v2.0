@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Date_abase</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script defer src="https://code.jquery.com/jquery-2.2.1.min.js"   integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="   crossorigin="anonymous"></script>
+    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+    <script defer src="http://maps.google.com/maps/api/js?"></script>
+    <script defer src= "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+
+    <script defer src="{% static 'django_ajax.js'%}"></script>
+    <script defer src="{% static 'backgroundcheck.js'%}"></script>
+    <script defer src="{% static 'main.js'%}"></script>
+</head>
+
+</head>
+<body>
+
+    <nav class="grey lighten-1">
+    <!-- Mobile Structure -->
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="events/all" class="all"> Your Events </a></li>
+        <li><a href="events/getall" class="getall"> All Events </a></li>
+        <li><a href="events/attending" class="attending"> Attending</a></li>
+
+        <li><a href="events/create" class="create"> Create Event</a></li>
+        <li><a href="users/logout" class="logout"> Logout</a></li>
+    </ul>
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{% url 'dates:search' %}">Search by Category</a></li>
+        <li><a href="{% url 'dates:search_area' %}">Search by Area</a></li>
+        <li><a href="{% url 'dates:search_price' %}">Search by Price</a></li>
+    </ul>
+
+
+    <div class="nav-wrapper">
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+        <ul id="nav-mobile" class="left hide-on-med-and-down">  
+            <li><a href="{% url 'dates:add' %}"> Add Date</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
+
+            </li><a href="/" class="center brand-logo"> Date-abase</a></li>
+            <li><a href="{% url 'dates:about' %}"> About</a></li>
+            <li><a href="{% url 'dates:register' %}"> Register!</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{% url 'dates:login' %}"> Login</a></li>
+            <li><a id="message" href=""> {{ user.username }}</a></li>
+            <li id="logout"><a href="{% url 'dates:logout' %}"> Logout</a></li>
+        </ul>   
+        </div>
+    </nav>
+
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+    <br><br>
+    <footer>
+        <p id="footer"> © Copyright Jack A. Anteby 2016 | All Rights Reserved. </p>
+    </footer>
+
+</body>
+</html>
+
