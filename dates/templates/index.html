@@ -2,28 +2,67 @@
 {% block content %}
 
     <div class= "button_div" id="answer_div">
-
-		<div class="parallax-container">
-			<div class="parallax"><img src="static/date.jpg"></div>
-		</div>
-
-		<div class="section white">
+    <div id="background">
+        
+        <div id="spacer"> </div>
+		<div class="section white" id="banner">
 			<div class="row container">
 				<h2 id="welcome"> Welcome to The Date-abase!</h2>
-	        	<h4>Register or Login to get started	
-	        	        <a href="#" class="btn-floating btn-large waves-effect waves-light blue" id="popup"> <i class="material-icons left">assignment_ind</i></a>
- 	        		</h4>
-
-				<br><br>	
 			</div>
 		</div>
 
-		<div class="parallax-container">
-			<div class="parallax"><img src="static/date.jpg"></div>
-		</div>
+    </div>
     </div>
 
-{% include "about.html"%}
-
-
 {% endblock content %}
+
+{% block footer %}
+<footer class="page-footer grey lighten-2">
+
+    <div class="container">
+        <div class="row">
+            <div class="col l8 s12">
+                <h5 class="black-text">Company Bio</h5>
+                <p class="black-text">This all started as a collection of dates between a group of friends who just needed some cool places to go. After seeing the popularity of their collection of dates grow, they knew they had something valuable. While in Tech Bootcamp Jack decided to create a side project using the date collection and Date-abase was born.</p>
+                </div>
+
+                    <div class="col l1 m0 s0">
+                        <!-- this is just a spacer -->
+                        <p></p>
+                    </div>
+
+                <div class="col l3 m5 s5">
+                    <h5 class="black-text">Social</h5>
+                    <ul>
+                        <li><a class="black-text" id="grey_hover" href="http://www.jackanteby.com">Jack's Personal Page</a></li>
+                        <li><a class="black-text" id="grey_hover" href="https://github.com/Janteby1/date-abase-v2.0.git">GitHub Code</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row align left">
+                <span class="blue-grey-text text-darken-3" id="bold"> © Copyright: </span> <a class="black-text" href="#">Jack A. Anteby 2016 | All Rights Reserved.</a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+{% endblock footer %}
+
+
+{% block templates %}
+
+    {% include "about.html"%}
+    {% include "register.html"%}
+    {% include "login.html"%}
+
+{% endblock templates %}
+
+
+
+
