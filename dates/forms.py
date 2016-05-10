@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import Textarea, CheckboxInput
+from django.forms import Textarea, CheckboxInput, PasswordInput
 
 from .models import UserProfile, Dates
 
@@ -111,8 +111,19 @@ PRICES = (
 class UserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ("first_name","username", "email", "password1", "password2")
+        fields = ("first_name", "last_name", "username", "email", "password1", "password2")
 
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "password",
+        ]
+        widgets = {
+            # this sets the input text area
+            "password": PasswordInput(),
+        }
 
 class AddDateForm(forms.ModelForm):
 # how do you make some of them optional input?

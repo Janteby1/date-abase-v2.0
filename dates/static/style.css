@@ -1,5 +1,5 @@
 #answer_div {
-	margin-left: 1em;
+	/*margin-left: 1em;*/
 }
 
 .brand-logo {
@@ -22,7 +22,7 @@ form {
 }
 
 #welcome {
-	color: #1e88e5;
+	color: #90a4ae;
 }
 
 #likes {
@@ -37,12 +37,56 @@ form {
 	font-weight: bold;
 }
 
-#footer {
-	float:right;
-	margin-right:3em;
-	font-style: italic;
+footer.page-footer {
+	margin:0em !important;
 }
 
 #home {
 	margin-left:3em;
 }
+
+#blur {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  opacity: .75;
+}
+
+.clear {
+  filter: blur(0px);
+  color:white;
+}
+
+#background {
+	background: url("date.jpg") no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+#spacer {
+	padding-top: 35vh;
+}
+
+#banner {
+	opacity: .75;
+}
+
+#banner h2{
+	color:black;
+	opacity: 2.0;
+}
+
+#grey_hover:hover {
+	font-weight:bold;
+}
+
+#bold{
+	font-weight: bold;
+}
+
+#about_card {
+	padding: 1.5em;
+}
+

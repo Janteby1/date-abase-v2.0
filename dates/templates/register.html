@@ -1,0 +1,30 @@
+    <script id="register-template" type="x-tmpl-mustache/template">
+
+      <div class="container">
+      <br>      
+      <h4 class="center teal-text"> Become Part of The Growing Family</h4>
+      <br><br>
+
+        <form action="" id='register_form' method="POST">
+            {% with hash="#" open="{{" close="}}"%}
+            {% csrf_token %}
+
+            {% for field in user_creation_form %}
+                <div class="{{open}}{{hash}}{{field.html_name}}{{close}}error{{open}}/{{field.html_name}}{{close}}">
+                    {{field.label_tag}}{{ field }}
+                </div>
+                {{open}}{{hash}}{{field.html_name}}{{close}}
+                    <small class="error">{{open}} . {{close}}</small>
+                {{open}}/{{field.html_name}}{{close}}
+            {% endfor %}
+            {% endwith %}
+            <br><br>
+            <input class="btn waves-effect waves-light" id="register_button" type="submit" name="action" value= "Submit Registration" <i class="material-icons right"></i>
+            <br><br><br>
+        </div>
+
+        </form>
+
+    </script>
+
+
