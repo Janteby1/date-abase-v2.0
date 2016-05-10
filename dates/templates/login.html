@@ -10,7 +10,7 @@
             {% csrf_token %}
 			<div class="row">
 	            {% for field in login_form %}
-	                <div class="input-field col s11 white-text {{open}}{{hash}}{{field.html_name}}{{close}}error{{open}}/{{field.html_name}}{{close}}">
+	                <div class="input-field col s11 {{open}}{{hash}}{{field.html_name}}{{close}}error{{open}}/{{field.html_name}}{{close}}">
 			        	<i class="material-icons prefix">{{open}}{{field.label_tag_id}}{{close}}</i>
 	                    {{ field }}
 	                    <label for="{{field.label_tag_id}}" {{open}}{{hash}}{{field.html_name}}{{close}}data-error="{{open}} . {{close}}"{{open}}/{{field.html_name}}{{close}}>{{field.label}}</label>

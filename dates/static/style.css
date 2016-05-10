@@ -90,3 +90,7 @@ footer.page-footer {
 	padding: 1.5em;
 }
 
+#username {
+	font-style: italic;
+	color: black;
+}

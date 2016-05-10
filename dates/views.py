@@ -6,6 +6,7 @@ import json
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 from .forms import AddDateForm, SearchDateForm, UserForm, LoginForm, SearchDateForm_Area, SearchDateForm_Price
 from .models import UserProfile, Dates 
