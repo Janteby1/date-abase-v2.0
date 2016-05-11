@@ -8,7 +8,6 @@ $(document).ready(function(){
 ///// About /////
     $('#nav').on('click', "#about", function(event){
         event.preventDefault();
-		console.log("cool!")
 
         var template = $('#about-template').html();
         var renderM = Mustache.render(template);
@@ -67,7 +66,6 @@ $(document).ready(function(){
 
     $('#answer_div').on('submit', '#login_form',function(event){
       event.preventDefault();
-      console.log("clicked login")
 
       var query_string = $(this).serialize() //returns all the data in your form
       // console.log(query_string)
@@ -81,7 +79,7 @@ $(document).ready(function(){
           if (data.success){
           ////// if they login correctly ////////
             console.log("HERE")
-            document.location.href="/";
+            document.location.href="/index";
             window.scrollTo(0, 0);
           } 
           else{
@@ -130,6 +128,16 @@ $(document).ready(function(){
     });
 });
 
+
+///// Create /////
+    $('#nav').on('click', "#add", function(event){
+        event.preventDefault();
+
+        var template = $('#create-template').html();
+        var renderM = Mustache.render(template);
+        $('#answer_div').html(renderM);  
+
+    });
 
 
 

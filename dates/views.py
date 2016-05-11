@@ -6,6 +6,7 @@ import json
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 from .forms import AddDateForm, SearchDateForm, UserForm, LoginForm, SearchDateForm_Area, SearchDateForm_Price
 from .models import UserProfile, Dates 
@@ -73,5 +74,25 @@ class User_Logout(View):
         logout(request) # django built in logout 
         return JsonResponse ({"Message":"Logout Successful"})
 
+
+class AddDate(View):
+    def post(self, request):
+        # checks to make sure the user is logged in 
+        if not request.user.is_authenticated():
+            return HttpResponseForbidden(render (request, "403.html"))
+
+        form = AddDateForm(data=request.POST)
+        if form.is_valid():
+            # add the user to each post 
+            user = request.user
+            date = form.save(commit=False)
+            date.user = user
+            date.save()
+            # return JsonResponse({"username":user.username, "success": True})
+
+        else:
+            context = {
+                'add_date_form': form,}
+            # return JsonResponse({"username":user.username, "success": True})
 
         
