@@ -8,7 +8,6 @@ $(document).ready(function(){
 ///// About /////
     $('#nav').on('click', "#about", function(event){
         event.preventDefault();
-		console.log("cool!")
 
         var template = $('#about-template').html();
         var renderM = Mustache.render(template);
@@ -129,6 +128,16 @@ $(document).ready(function(){
     });
 });
 
+
+///// Create /////
+    $('#nav').on('click', "#add", function(event){
+        event.preventDefault();
+
+        var template = $('#create-template').html();
+        var renderM = Mustache.render(template);
+        $('#answer_div').html(renderM);  
+
+    });
 
 
 
