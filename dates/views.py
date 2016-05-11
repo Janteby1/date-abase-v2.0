@@ -81,18 +81,24 @@ class AddDate(View):
         if not request.user.is_authenticated():
             return HttpResponseForbidden(render (request, "403.html"))
 
-        form = AddDateForm(data=request.POST)
+        form = AddDateForm(request.POST)
         if form.is_valid():
             # add the user to each post 
             user = request.user
             date = form.save(commit=False)
             date.user = user
             date.save()
-            # return JsonResponse({"username":user.username, "success": True})
+            return JsonResponse({"Message":"added date", "success": True})
 
         else:
-            context = {
-                'add_date_form': form,}
-            # return JsonResponse({"username":user.username, "success": True})
+            # context = {
+            #     'add_date_form': form,}
+            return JsonResponse({"Message":"No date added", "success": False})
+
+
+
+
+
+            
 
         
