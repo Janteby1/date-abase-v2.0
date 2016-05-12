@@ -87,9 +87,8 @@ class AddDate(View):
             date.user = user
             date.save()
             return JsonResponse({"Message":"added date", "success": True})
-
         else:
-            return HttpResponseForbidden(render (request, "403.html"))
+            return JsonResponse({"success": False})
 
 
 

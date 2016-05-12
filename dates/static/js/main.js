@@ -167,7 +167,14 @@ $( window ).unload(function() {
         var renderM = Mustache.render(template);
         $('#answer_div').html(renderM);  
         window.scrollTo(0, 0);
-          }
+        }
+    else {
+        var template = $('#403-template').html();
+        var renderM = Mustache.render(template);
+        $('#answer_div').html(renderM);  
+        window.scrollTo(0, 0);
+        }
+
         });
     });
 
