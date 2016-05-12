@@ -5,6 +5,13 @@ $(document).ready(function(){
     $('.parallax').parallax();
     $('.slider').slider({full_width: true});
 
+// goes to top of page on reload
+$( window ).unload(function() {
+  window.scrollTo(0, 0);
+    console.log("again")
+});
+
+
 ///// About /////
     $('#nav').on('click', "#about", function(event){
         event.preventDefault();
@@ -14,6 +21,7 @@ $(document).ready(function(){
         $('#answer_div').html(renderM);  
 
     });
+
 
 ///// Register /////
     $('#nav').on('click', "#register", function(event){
@@ -109,6 +117,7 @@ $(document).ready(function(){
       });
     });
 
+
 ///// Logout /////
     $('#nav').on('click', "#logout", function(event){
     event.preventDefault();
@@ -136,9 +145,38 @@ $(document).ready(function(){
         var template = $('#create-template').html();
         var renderM = Mustache.render(template);
         $('#answer_div').html(renderM);  
-
+        window.scrollTo(0, 0);
     });
 
+
+    $('#answer_div').on('submit', '#create_form',function(event){
+    event.preventDefault();
+
+    var query_string = $(this).serialize() //returns all the data in your form
+    console.log(query_string)
+
+    $.ajax({
+        method: "POST",
+        url: "add",
+        data: query_string,
+    }).done(function(data, status){
+
+    if (data.success){
+        console.log(data.Message)
+        var template = $('#thanx-template').html();
+        var renderM = Mustache.render(template);
+        $('#answer_div').html(renderM);  
+        window.scrollTo(0, 0);
+        }
+    else {
+        var template = $('#403-template').html();
+        var renderM = Mustache.render(template);
+        $('#answer_div').html(renderM);  
+        window.scrollTo(0, 0);
+        }
+
+        });
+    });
 
 
 
