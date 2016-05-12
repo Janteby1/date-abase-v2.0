@@ -21,7 +21,7 @@ class Index(View):
     def get(self, request):
         user_creation_form = UserForm()
         login_form = LoginForm()
-        add_date_form = AddDateForm()
+        # add_date_form = AddDateForm()
         search_date_form_category = SearchDateForm()
         search_date_form_area = SearchDateForm_Area()
         search_date_form_price = SearchDateForm_Price()
@@ -29,7 +29,7 @@ class Index(View):
         context = {
             'user_creation_form': user_creation_form,
             'login_form': login_form,
-            "add_date_form":add_date_form,
+            # "add_date_form":add_date_form,
             "search_date_form_category":search_date_form_category,
             "search_date_form_area":search_date_form_area,
             "search_date_form_price": search_date_form_price,
@@ -78,11 +78,9 @@ class User_Logout(View):
 class AddDate(View):
     def post(self, request):
         # checks to make sure the user is logged in 
-        if not request.user.is_authenticated():
-            return HttpResponseForbidden(render (request, "403.html"))
-
-        form = AddDateForm(request.POST)
-        if form.is_valid():
+        if request.user.is_authenticated():
+            form = AddDateForm(request.POST)
+            form.is_valid()
             # add the user to each post 
             user = request.user
             date = form.save(commit=False)
@@ -91,14 +89,12 @@ class AddDate(View):
             return JsonResponse({"Message":"added date", "success": True})
 
         else:
-            # context = {
-            #     'add_date_form': form,}
-            return JsonResponse({"Message":"No date added", "success": False})
+            return HttpResponseForbidden(render (request, "403.html"))
 
 
 
 
 
-            
+
 
         

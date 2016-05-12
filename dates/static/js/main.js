@@ -162,25 +162,12 @@ $( window ).unload(function() {
     }).done(function(data, status){
 
     if (data.success){
-      console.log(data.Message)
-      // __cache['results'] = data.results;
-    //   var results = data.results[0];
-
-    //     ////// if submit form correctly ////////
-    //     $('#ja_search').attr("class","hide");
-
-    //       // append the header to the page, once
-    //       var template = $('#results-header-template').html();
-    //       var renderM = Mustache.render(template);
-    //       $('#answer_div').append(renderM);
-
-    //       var template = $('#results-template').html();
-    //       var renderM = Mustache.render(template, {'result_set': results, 'next':0});
-    //       // just append the new results to the page
-    //       $('#answer_div').append(renderM);
-    //       window.scrollTo(0, 0);
+        console.log(data.Message)
+        var template = $('#thanx-template').html();
+        var renderM = Mustache.render(template);
+        $('#answer_div').html(renderM);  
+        window.scrollTo(0, 0);
           }
-
         });
     });
 

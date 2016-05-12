@@ -4,41 +4,41 @@ from django.utils import timezone #make sure to set the timezone
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
 
-# this lets us create a drop down menu option
-CATEGORIES = (  
-    ('ACT1', 'Activity (Acrobatic)'),
-    ('ACT2', 'Activity (Arcade)'),
-    ('ACT3', 'Activity (Archery)'),
-    ('ACT4', 'Activity (Bar)'),
-    ('ACT5', 'Activity (Billiards)'),
-    ('ACT6', 'Activity (Boat Rental)'),
-    ('ACT7', 'Activity (Boat)'),
-    ('ACT8', 'Activity (Bowling)'),
-    ('ACT9', 'Activity (Bucket List)'),
-    ('ACT10', 'Activity (Chill)'),
-    ('ACT11', 'Activity (Experience)'),
-    ('ACT12', 'Activity (Mini Golf)'),
-    ('ACT13', 'Activity (Horseback Riding)'),
-    ('ACT14', 'Activity (Ice Skating)'),
-    ('ACT15', 'Activity (Karaoke)'),
-    ('ACT16', 'Activity (Go Karting)'),
-    ('ACT17', 'Activity (Movies)'),
-    ('ACT18', 'Activity (Musuem)'),
-    ('ACT19', 'Activity (Painting)'),
-    ('ACT20', 'Activity (Park)'),
-    ('ACT21', 'Activity (Play)'),
-    ('ACT22', 'Activity (Zoo)'),
+# # this lets us create a drop down menu option
+# CATEGORIES = (  
+#     ('ACT1', 'Activity (Acrobatic)'),
+#     ('ACT2', 'Activity (Arcade)'),
+#     ('ACT3', 'Activity (Archery)'),
+#     ('ACT4', 'Activity (Bar)'),
+#     ('ACT5', 'Activity (Billiards)'),
+#     ('ACT6', 'Activity (Boat Rental)'),
+#     ('ACT7', 'Activity (Boat)'),
+#     ('ACT8', 'Activity (Bowling)'),
+#     ('ACT9', 'Activity (Bucket List)'),
+#     ('ACT10', 'Activity (Chill)'),
+#     ('ACT11', 'Activity (Experience)'),
+#     ('ACT12', 'Activity (Mini Golf)'),
+#     ('ACT13', 'Activity (Horseback Riding)'),
+#     ('ACT14', 'Activity (Ice Skating)'),
+#     ('ACT15', 'Activity (Karaoke)'),
+#     ('ACT16', 'Activity (Go Karting)'),
+#     ('ACT17', 'Activity (Movies)'),
+#     ('ACT18', 'Activity (Musuem)'),
+#     ('ACT19', 'Activity (Painting)'),
+#     ('ACT20', 'Activity (Park)'),
+#     ('ACT21', 'Activity (Play)'),
+#     ('ACT22', 'Activity (Zoo)'),
 
-    ('AMU', 'Amusement Park'),
-    ('DES', 'Dessert (D)'),
-    ('DES_P', 'Dessert (P)'),
-    ('DIN_D', 'Dinner (D)'),
-    ('DIN_Deal', 'Dinner (Deal)'),
-    ('DIN_M', 'Dinner (M)'),
-    ('LUN', 'Lunch (D)'),
-    ('STA', 'Stadium'),
-    ('WEB', 'Website'),
-    )
+#     ('AMU', 'Amusement Park'),
+#     ('DES', 'Dessert (D)'),
+#     ('DES_P', 'Dessert (P)'),
+#     ('DIN_D', 'Dinner (D)'),
+#     ('DIN_Deal', 'Dinner (Deal)'),
+#     ('DIN_M', 'Dinner (M)'),
+#     ('LUN', 'Lunch (D)'),
+#     ('STA', 'Stadium'),
+#     ('WEB', 'Website'),
+#     )
 
 # Create your models here.
 class UserProfile(models.Model):
@@ -52,7 +52,7 @@ class UserProfile(models.Model):
 
 class Dates(models.Model):
     place = models.CharField (max_length=120)
-    category = models.CharField (max_length=80, choices=CATEGORIES)
+    category = models.CharField (max_length=80)
     address = models.CharField (max_length=150)
     area = models.CharField (max_length=30)
     state = models.CharField (max_length=5) 

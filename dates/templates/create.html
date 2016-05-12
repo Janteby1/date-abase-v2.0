@@ -49,8 +49,8 @@
 				</div>
 
 		    	<div class="col s4">
-		    		<p>Category: </p>				
-					<select class="browser-default">
+		    		<p>Category: </p>	
+					<select name="category" class="browser-default">
 						<option value= "ACT1" > Acrobatic </option>
 						<option value= "ACT2" > Arcade </option>
 						<option value= "ACT3" > Archery </option>
@@ -100,15 +100,14 @@
 				      <label for="$$$">$$$</label>
 				    </p><br>
 
-					<p>Parking</p>
-					  <div class="switch">
-					    <label>
-					      Street/Free
-					      <input name="parking" type="checkbox">
-					      <span class="lever"></span>
-					      Lot/Paid
-					    </label>
-					  </div><br>
+					<p>Parking:</p>
+					<select name="parking" class="browser-default">
+						<option value= "Free Street" >Free Street</option>
+						<option value= "Meter" >Metered Street</option>
+						<option value= "Lot" >Paid Lot</option>
+						<option value= "None" >None</option>
+					</select>
+					<br>
 				</div>
 
 				<div class="col s4">
