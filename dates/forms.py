@@ -148,16 +148,8 @@ class SearchDateForm_Area(forms.ModelForm):
             "area_choice", 
         ]
 
-class SearchDateForm_Price(forms.ModelForm):   
-    price_choice = forms.MultipleChoiceField(required=False,
-        widget=forms.CheckboxSelectMultiple, choices=PRICES)
-
-    class Meta:
-        model = Dates
-
-        fields = [
-            "price_choice", 
-        ]
+class SearchDateForm_Price(forms.Form):   
+    price = forms.CharField() # get the input directly from the user
 
 
 
