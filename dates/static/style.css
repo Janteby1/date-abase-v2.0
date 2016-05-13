@@ -37,8 +37,10 @@ form {
 	font-weight: bold;
 }
 
-footer.page-footer {
+.page-footer {
 	margin:0em !important;
+	position:relative;
+	bottom:0;
 }
 
 #home {
