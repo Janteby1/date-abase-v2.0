@@ -1,0 +1,179 @@
+    <script id="search-template" type="x-tmpl-mustache/template">
+
+      <div class="container">
+      <br>      
+      <h3 class="center teal-text"> Find The Perfect Date Idea</h3>
+      <br><br>
+
+        <div class="row center"> 
+            <h5 class="center teal-text"> Search By:</h5>
+                <br>
+                <div class="col s4 center">
+                <a href="#" id="category_search_button" class="btn waves-effect waves-light blue-green" type="submit" name="action"><i class="material-icons right">label</i>Category</a>
+                </div>
+
+                <div class="col s4 center">
+                <a href="#" id="price_search_button" class="btn waves-effect waves-light blue-green" type="submit" name="action"><i class="material-icons right">grade</i>Price</a>
+                </div>
+
+                <div class="col s4 center">
+                <a href="#" id="area_search_button" class="btn waves-effect waves-light blue-green" type="submit" name="action"><i class="material-icons right">location_on</i>Area</a>
+                </div>
+            <br><br>  
+        </div>
+
+<div class="row center"> 
+
+    <div id="category_search_div" class="hide">
+        <form action="" id='category_search_form' method="POST">
+            <div class="col s10 center">
+                <p>Category: </p>   
+                <select name="category" class="browser-default">
+                    <option value= "ACT1" > Acrobatic </option>
+                    <option value= "ACT2" > Arcade </option>
+                    <option value= "ACT3" > Archery </option>
+                    <option value= "ACT4" > Bar </option>
+                    <option value= "ACT5" > Billiards </option>
+                    <option value= "ACT6" > Boat Rental </option>
+                    <option value= "ACT7" > Boat </option>
+                    <option value= "ACT8" > Bowling </option>
+                    <option value= "ACT9" > Bucket List </option>
+                    <option value= "ACT10" > Chill </option>
+                    <option value= "ACT11" > Experience </option>
+                    <option value= "ACT12" > Go Karting </option>
+                    <option value= "ACT13" > Hourseback Riding </option>
+                    <option value= "ACT14" > Ice Skating </option>
+                    <option value= "ACT15" > Karaoke </option>
+                    <option value= "ACT16" > Mini Golf </option>
+                    <option value= "ACT17" > Movies </option>
+                    <option value= "ACT18" > Musuem </option>
+                    <option value= "ACT19" > Painting </option>
+                    <option value= "ACT20" > Park </option>
+                    <option value= "ACT21" > Play </option>
+                    <option value= "ACT22" > Zoo </option>
+
+                    <option value= "AMU"  >Amusement Park</option>
+                    <option value= "DES" >Dessert (D)</option>
+                    <option value= "DIN_P" >Dessert (D/P)</option>
+                    <option value= "DIN_D" >Dinner (D)</option>
+                    <option value= "DIN_Deal" >Dinner (Deal)</option>
+                    <option value= "DIN_M" >Dinner (M)</option>
+                    <option value= "LUN" >Lunch (D)</option>
+                    <option value= "STA" >Stadium</option>
+                    <option value= "WEB" >Website</option>
+                </select>
+            </div>
+            
+            <div class="col s2 center">    
+            <br><br>        
+                <button class="btn-floating btn-large waves-effect waves-light blue-green" type="submit" name="action"><i class="material-icons right">search</i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="price_search_div" class="hide">
+        <form action="" id='price_search_form' method="POST">
+                <div class="col s10 center">
+                    <p>Price Level: </p>                
+                    <p>
+                      <input class="with-gap" name="price" value="$" type="radio" id="$"  />
+                      <label for="$">$</label>
+                    </p>
+                    <p>
+                      <input class="with-gap" name="price" value="$$" type="radio" id="$$"  />
+                      <label for="$$">$$</label>
+                    </p>
+                    <p>
+                      <input class="with-gap" name="price" value="$$$" type="radio" id="$$$"  />
+                      <label for="$$$">$$$</label>
+                    </p>
+                    <p>
+                      <input class="with-gap" name="price" value="$$$$" type="radio" id="$$$$"  />
+                      <label for="$$$$">$$$$</label>
+                    </p><br>
+                </div>
+
+                <div class="col s2 center">
+                <br><br>
+                    <button class="btn-floating btn-large waves-effect waves-light blue-green" type="submit" name="action"><i class="material-icons right">search</i>
+                    </button>
+                </div>
+        </form>
+    </div>
+
+    <div id="area_search_div" class="hide">
+        <form action="" id='area_search_form' method="POST">
+            <div class="input-field col s10 center">
+                <p>Area: </p>  
+                <select name="area" class="browser-default">
+                    <option value='Allenhurst'>Allenhurst </option> 
+                    <option value='Asbury'>Asbury </option> 
+                    <option value='Astoria'>Astoria </option> 
+                    <option value='Atlantic City'>Atlantic City </option> 
+                    <option value='Bay Ridge'>Bay Ridge </option> 
+                    <option value='Borough Park'>Borough Park </option> 
+                    <option value='Bradley'>Bradley </option> 
+                    <option value='Bronx'>Bronx </option> 
+                    <option value='Brooklyn'>Brooklyn </option> 
+                    <option value='Brooklyn Hieghts'>Brooklyn Hieghts </option> 
+                    <option value='Caroll Gardens'>Caroll Gardens </option> 
+                    <option value='Central Park'>Central Park </option> 
+                    <option value='Chelsea'>Chelsea </option> 
+                    <option value='Cobble Hill'>Cobble Hill </option> 
+                    <option value='Coney Island'>Coney Island </option> 
+                    <option value='Crown Hieghts'>Crown Hieghts </option> 
+                    <option value='Deal'>Deal </option> 
+                    <option value='Dumbo'>Dumbo </option> 
+                    <option value='East Rutherford'>ast Rutherford </option> 
+                    <option value='Eatontown'>Eatontown </option> 
+                    <option value='Edison'>Edison </option> 
+                    <option value='Elizabeth'>Elizabeth </option> 
+                    <option value='Financial District'>Financial District </option> 
+                    <option value='Five Towns'>Five Towns </option> 
+                    <option value='Flatiron'>Flatiron </option> 
+                    <option value='Greenich Village'>Greenich Village </option> 
+                    <option value='Greatneck'>Greatneck </option> 
+                    <option value='Hazlet'>Hazlet </option> 
+                    <option value='Jackson'>Jackson </option> 
+                    <option value='Various'>Various </option> 
+                    <option value='IDEA'>IDEA </option>
+                    <option value='Park'>Park </option>
+                    <option value='Keansburg'>Keansburg </option>
+                    <option value='Kips Bay'>Kips Bay </option> 
+                    <option value='Lakewood'>Lakewood </option>
+                    <option value='Lenox Hill'>Lenox Hill </option> 
+                    <option value='Long Island'>Long Island </option> 
+                    <option value='Malboro'>Malboro </option>
+                    <option value='Midtown'>Midtown </option>
+                    <option value='Monsey'>Monsey </option>
+                    <option value='Mt Vernon'>Mt Vernon </option> 
+                    <option value='New Rochelle'>New Rochelle </option> 
+                    <option value='Newark'>Newark </option>
+                    <option value='Oakhurst'>Oakhurst </option>
+                    <option value='Park Slope'>Park Slope </option> 
+                    <option value='Point Pleasant'>Point Pleasant </option> 
+                    <option value='Prospect Park'>Prospect Park </option> 
+                    <option value='Queens'>Queens </option>
+                    <option value='Red Bank'>Red Bank </option> 
+                    <option value='Seaside Hieghts'>Seaside Hieghts </option> 
+                    <option value='Staten Island'>Staten Island </option> 
+                    <option value='Tinton Falls'>Tinton Falls </option> 
+                    <option value='Union Square'>Union Square </option> 
+                    <option value='Upper East Side'>Upper East Side </option> 
+                    <option value='West Village'>West Village </option>  
+                    <option value='Williamsburg'>Williamsburg </option> 
+                </select>
+            </div>
+
+            <div class="col s2 center">
+            <br><br>
+                <button class="btn-floating btn-large waves-effect waves-light blue-green" type="submit" name="action"><i class="material-icons right">search</i>
+                </button>      
+            </div>
+        </form>
+    </div>
+
+</div>
+
+    </script>
