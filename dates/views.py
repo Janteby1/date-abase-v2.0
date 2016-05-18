@@ -92,6 +92,48 @@ class AddDate(View):
 
 
 
+        if request.is_ajax():
+            data = request.POST
+        else:
+            body = request.body.decode()
+            if not body: 
+                return JsonResponse ({"response":"Missing Body"})
+            data = json.loads(body)
+
+        user_form = UserForm(data)
+        if user_form.is_valid():
+            user = user_form.save()
+            return JsonResponse({"Message": "Register succesfull", "success": True})
+
+
+class SearchDate_Price(View):
+    # need to pass the check box values to the db and retun the date ideas
+    def post(self, request):
+        if request.is_ajax():
+            data = request.POST
+        else:
+            body = request.body.decode()
+            if not body: 
+                return JsonResponse ({"response":"Missing Body"})
+            data = json.loads(body)
+        
+        form = SearchDateForm_Price(request.POST)
+        if form.is_valid():
+            # this gets all the values the user checked
+            codes=data.get("price")
+
+            # this returns a list of all the date ideas returned from the db 
+            dates = Dates.objects.filter(price=codes)
+            # put all the values into a json dictionary with a method called from the models
+            dates = [date.to_json() for date in dates]
+
+            return JsonResponse({
+                "success": True,
+                'results': dates,
+            })
+        else:
+            return JsonResponse ({"Message":"Invalid information", 'success' : False })
+
 
 
 

@@ -22,7 +22,7 @@ form {
 }
 
 #welcome {
-	color: #90a4ae;
+	color: #42A5F5;
 }
 
 #likes {
@@ -76,7 +76,7 @@ form {
 }
 
 #banner h2{
-	color:black;
+	color: #42A5F5;
 	opacity: 2.0;
 }
 
@@ -89,7 +89,7 @@ form {
 }
 
 #about_card {
-	padding: 1.5em;
+	padding: 2em;
 }
 
 #username {
@@ -103,7 +103,10 @@ form {
 	font-style: italic;
 }
 
-
+#bigger {
+	font-size: 2em;
+	font-weight: bold;
+}
 
 
 
