@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 
-from .forms import AddDateForm, SearchDateForm, UserForm, LoginForm, SearchDateForm_Area, SearchDateForm_Price
+from .forms import AddDateForm, SearchDateForm_Category, UserForm, LoginForm, SearchDateForm_Area, SearchDateForm_Price
 from .models import UserProfile, Dates 
 
 
@@ -22,7 +22,7 @@ class Index(View):
         user_creation_form = UserForm()
         login_form = LoginForm()
         # add_date_form = AddDateForm()
-        search_date_form_category = SearchDateForm()
+        search_date_form_category = SearchDateForm_Category()
         search_date_form_area = SearchDateForm_Area()
         search_date_form_price = SearchDateForm_Price()
 
@@ -90,8 +90,6 @@ class AddDate(View):
         else:
             return JsonResponse({"success": False})
 
-
-
         if request.is_ajax():
             data = request.POST
         else:
@@ -127,12 +125,72 @@ class SearchDate_Price(View):
             # put all the values into a json dictionary with a method called from the models
             dates = [date.to_json() for date in dates]
 
-            return JsonResponse({
-                "success": True,
-                'results': dates,
-            })
+            if dates:
+                return JsonResponse({
+                    "success": True, 'results': dates})
+            else:
+                return JsonResponse({"success": True})
         else:
             return JsonResponse ({"Message":"Invalid information", 'success' : False })
+
+
+class SearchDate_Category(View):
+    def post(self, request):
+        if request.is_ajax():
+            data = request.POST
+        else:
+            body = request.body.decode()
+            if not body: 
+                return JsonResponse ({"response":"Missing Body"})
+            data = json.loads(body)
+        
+        form = SearchDateForm_Category(request.POST)
+        if form.is_valid():
+            # this gets all the values the user checked
+            codes=data.get("category")
+
+            # this returns a list of all the date ideas returned from the db 
+            dates = Dates.objects.filter(category=codes)
+            # put all the values into a json dictionary with a method called from the models
+            dates = [date.to_json() for date in dates]
+
+            if dates:
+                return JsonResponse({
+                    "success": True, 'results': dates})
+            else:
+                return JsonResponse({"success": True})
+        else:
+            return JsonResponse ({"Message":"Invalid information", 'success' : False })
+
+
+class SearchDate_Area(View):
+    def post(self, request):
+        if request.is_ajax():
+            data = request.POST
+        else:
+            body = request.body.decode()
+            if not body: 
+                return JsonResponse ({"response":"Missing Body"})
+            data = json.loads(body)
+        
+        form = SearchDateForm_Area(request.POST)
+        if form.is_valid():
+            # this gets all the values the user checked
+            codes=data.get("area")
+
+            # this returns a list of all the date ideas returned from the db 
+            dates = Dates.objects.filter(area=codes)
+            # put all the values into a json dictionary with a method called from the models
+            dates = [date.to_json() for date in dates]
+
+            if dates:
+                return JsonResponse({
+                    "success": True, 'results': dates})
+            else:
+                return JsonResponse({"success": True})
+        else:
+            return JsonResponse ({"Message":"Invalid information", 'success' : False })
+
 
 
 

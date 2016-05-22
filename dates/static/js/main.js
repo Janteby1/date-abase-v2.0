@@ -190,13 +190,14 @@ $( window ).unload(function() {
     });
 
 // Search Button //
-    $('#search_button').on('click', function(event){
+    $('#answer_div').on('click', "#search_button", function(event){
       event.preventDefault();
         var template = $('#search-template').html();
         var renderM = Mustache.render(template, {});
         $('#answer_div').html(renderM);
         window.scrollTo(0, 0);
     });
+
 
 // Category Search Button //
     $('#answer_div').on('click', "#category_search_button", function(event){
@@ -205,14 +206,25 @@ $( window ).unload(function() {
     $("#area_search_div").attr("class", "hide");
     });
 
-// area Search Button //
-    $('#answer_div').on('click', "#area_search_button", function(event){
-    $("#category_search_div").attr("class", "hide");
-    $("#price_search_div").attr("class", "hide");
-    $("#area_search_div").attr("class", "display");
+    $('#answer_div').on('submit', '#category_search_form',function(event){
+    event.preventDefault();
+
+    var query_string = $(this).serialize() // returns all the data in your form
+    $.ajax({
+        method: "POST",
+        url: "category",
+        data: query_string,
+    }).done(function(data, status){
+
+    if (data.success){
+      ////// if answers came back ////////
+        var template = $('#results-template').html();
+        var renderM = Mustache.render(template, {"results":data.results});
+        $('#answer_div').html(renderM);
+        window.scrollTo(0, 0);
+        }
+        });
     });
-
-
 
 
 // Price Search Button //
@@ -238,20 +250,37 @@ $( window ).unload(function() {
         var renderM = Mustache.render(template, {"results":data.results});
         $('#answer_div').html(renderM);
         window.scrollTo(0, 0);
-        // $('#answer_div').append(data.Message);
         }
-    /// put an error message here /////
-      else {
-        console.log (data.Message)
-        // var template = $('#register-template').html();
-        // var renderM = Mustache.render(template, data.errors);
-        // $('#answer_div').html(renderM);
-        // window.scrollTo(0, 0);
-      }
-
         });
     });
 
+
+// area Search Button //
+    $('#answer_div').on('click', "#area_search_button", function(event){
+    $("#category_search_div").attr("class", "hide");
+    $("#price_search_div").attr("class", "hide");
+    $("#area_search_div").attr("class", "display");
+    });
+
+    $('#answer_div').on('submit', '#area_search_form',function(event){
+    event.preventDefault();
+
+    var query_string = $(this).serialize() // returns all the data in your form
+    $.ajax({
+        method: "POST",
+        url: "area",
+        data: query_string,
+    }).done(function(data, status){
+
+    if (data.success){
+      ////// if answers came back ////////
+        var template = $('#results-template').html();
+        var renderM = Mustache.render(template, {"results":data.results});
+        $('#answer_div').html(renderM);
+        window.scrollTo(0, 0);
+        }
+        });
+    });
 
 
 });
