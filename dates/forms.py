@@ -124,32 +124,40 @@ class LoginForm(forms.ModelForm):
         }
 
 
-# need a search form to get date ideas by catergory using check boxes
-class SearchDateForm(forms.ModelForm):   
-    category_choice = forms.MultipleChoiceField(required=False,
-        widget=forms.CheckboxSelectMultiple, choices=CATEGORIES)
-
-    class Meta:
-        model = Dates
-
-        fields = [
-            "category_choice", 
-        ]
-
-
-class SearchDateForm_Area(forms.ModelForm):   
-    area_choice = forms.MultipleChoiceField(required=False,
-        widget=forms.CheckboxSelectMultiple, choices=AREAS)
-
-    class Meta:
-        model = Dates
-
-        fields = [
-            "area_choice", 
-        ]
-
 class SearchDateForm_Price(forms.Form):   
     price = forms.CharField() # get the input directly from the user
+
+class SearchDateForm_Area(forms.Form):   
+    area = forms.CharField() # get the input directly from the user
+
+class SearchDateForm_Category(forms.Form):   
+    category = forms.CharField() # get the input directly from the user
+
+
+# # need a search form to get date ideas by catergory using check boxes
+# class SearchDateForm(forms.ModelForm):   
+#     category_choice = forms.MultipleChoiceField(required=False,
+#         widget=forms.CheckboxSelectMultiple, choices=CATEGORIES)
+
+#     class Meta:
+#         model = Dates
+
+#         fields = [
+#             "category_choice", 
+#         ]
+
+
+# class SearchDateForm_Area(forms.ModelForm):   
+#     area_choice = forms.MultipleChoiceField(required=False,
+#         widget=forms.CheckboxSelectMultiple, choices=AREAS)
+
+#     class Meta:
+#         model = Dates
+
+#         fields = [
+#             "area_choice", 
+#         ]
+
 
 
 
