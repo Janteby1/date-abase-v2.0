@@ -19,9 +19,12 @@
 				<div class="col s12 m4 l4">
 					<div class="card-content">
 				        <div class="entry" id="neighborhood"></div>
-				        <div class="entry" id="value"><strong>Property Value Median: </strong>{{unit_value_median}}</div>
+				        <div class="entry"><strong>Contact: </strong>{{ phone }}</div>
+				        <div class="entry"><strong>Address: </strong>{{ address }}</div>
 				        <br>
-				        <div class="entry" id="rooms"><strong>Average Number of Rooms: </strong>{{rooms_median}}</div>
+				        <div class="entry"><strong>Price: </strong>{{ price }}</div>
+				        <div class="entry"><strong>Parking: </strong>{{ parking }}</div>
+				        <div class="entry"><strong>Website: </strong>{{ website }}</div>
 			        {% endverbatim %}
 					</div>
 				</div>	
@@ -34,7 +37,8 @@
 				</div>	
 
 				<div class="card-action col s12 m12 l12">
-						<a class="blue-text lighten-1-text left" href="#">More Details</a>
+						<a class="blue-text lighten-1-text" id="bold_hover" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
+
 						<a class="blue-text lighten-1-text right" href="#">View Map</a>
 						<a class="blue-text lighten-1-text right" href="#">Street View</a>
 					</div>
