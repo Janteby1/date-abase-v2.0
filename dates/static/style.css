@@ -108,9 +108,14 @@ form {
 	font-weight: bold;
 }
 
+#small {
+	font-size: .75em;
+	font-style: italic;
+}
 
-
-
+.space {
+	margin: 4em;
+}
 
 
 

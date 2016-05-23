@@ -20,8 +20,22 @@ $( window ).unload(function() {
         var template = $('#about-template').html();
         var renderM = Mustache.render(template);
         $('#answer_div').html(renderM);  
-
     });
+
+
+// Register Button //
+    // $("#register_button").on('click', function(event){
+    //   event.preventDefault();
+    //   window.location.replace("/index")
+
+    // function temp(){
+    //     var template = $('#register-template').html();
+    //     var renderM = Mustache.render(template, {});
+    //     $('#answer_div').html(renderM);
+    //     window.scrollTo(0, 0);
+    //     }
+    //   setTimeout(temp(), 2000);
+    // });
 
 
 ///// Register /////
