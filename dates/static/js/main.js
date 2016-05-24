@@ -7,16 +7,15 @@ function init_map(map_date, latitude, longitude) {
         zoom: 17
     };
 
-    var var_marker = new google.maps.Marker({
-    position: var_location,
-    map: var_map });
-    
-    console.log("here");
-    var var_map = new google.maps.Map(map_date.get(0),
-        var_mapoptions);
+    var var_map = new google.maps.Map(map_date.get(0), var_mapoptions);
     // the zero will get the element the jquery object is wrapping
 
+    var var_marker = new google.maps.Marker({
+        position: var_location,
+        map: var_map });
+
     var_marker.setMap(var_map); 
+    console.log("Done");
 };
 
 
@@ -325,7 +324,6 @@ $( window ).unload(function() {
 
         var date_id = ($(this).find("[name='date_id']").attr("value")); // find tells it where in the this object to look for the value
         var map_date = $("#" + date_id) // targets the right div in the DOM that has the same post id as our post FK
-        // console.log(map_date)
 
         var geocoder = new google.maps.Geocoder();
         var address = ($(this).find("[name='address']").attr("value")); // get the address from the DOM of the buttom you clicked
@@ -337,17 +335,28 @@ $( window ).unload(function() {
                 var longitude = results[0].geometry.location.lng();
                 // console.log(latitude);
                 // console.log(longitude);
-                } 
+                }
 
-            // map_date.css({"height":"250px"});
-            // map_date.css({"margin-bottom":"1.5em"});
-         
+            map_date.css({"height":"18em", "margin":"1.2em"});
             init_map(map_date, latitude, longitude);
 
         }); 
     })
 
+// Report Button //
+    $('#answer_div').on('click', ".report_button_form", function(event){
+    event.preventDefault();
+    var report_id = ($(this).find("[name='report_id']").attr("value")); // find tells it where in the this object to look for the value
+    $("#" + report_id + 'report_div').attr("class", "display"); // targets the right div in the DOM that has the same id and class combo
+    });
 
+    $('#answer_div').on('submit', '#report_form',function(event){
+    event.preventDefault();
+    var report_id = ($(this).find("[name='report_id']").attr("value")); // find tells it where in the this object to look for the value
+
+    $("#" + report_id + 'report_div').attr("class", "hide");
+    $("#" + report_id + 'thanx_div').attr("class", "display");
+    });
 
 
 

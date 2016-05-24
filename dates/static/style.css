@@ -125,7 +125,14 @@ form {
 	background-color: white;
 }
 
+#report_button {
+	background-color: white;
+}
 
+#map_form {
+	display: inline-block;
+	float: right;
+}
 
 
 
