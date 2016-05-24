@@ -30,17 +30,24 @@
 				</div>	
 
 				<div class="col s12 m4 l4">
-				{% verbatim %}
-					<div class="right-align map-div" data-lat="{{latitude}}" data-long="{{longitude}}"> 
-				{% endverbatim %}
-					</div>	
+					<div class="map_div" id= "{{date.id}}">
+	                    <!-- this is where everything from mustache will render -->
+	                </div>
 				</div>	
 
 				<div class="card-action col s12 m12 l12">
-						<a class="blue-text lighten-1-text" id="bold_hover" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
+						<a class="blue-text lighten-1-text hover" id="bold_hover" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
+						
+						{% verbatim %}
+	                    <form action="" class='map_button_form'>
+	                    <input type="hidden" name= "date_id" value="{{id}}">
+	                    <input type="hidden" name= "address" value="{{ address }}">
 
-						<a class="blue-text lighten-1-text right" href="#">View Map</a>
-						<a class="blue-text lighten-1-text right" href="#">Street View</a>
+	                    <button id="white" class="btn blue-text lighten-1-text right" id="map_button" type="submit" name="get_map" value= "Get Map">Map View</button>
+	                    </form>
+			        	{% endverbatim %}
+
+						<a class="blue-text lighten-1-text hover right" href="#">Street View</a>
 					</div>
 				</div>	
 			</div>

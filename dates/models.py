@@ -79,6 +79,7 @@ class Dates(models.Model):
 
     def to_json(self):
         return {
+            "id": self.id,
             "place": self.place,
             "category": self.category,
             "address": self.address,

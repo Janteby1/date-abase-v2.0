@@ -117,5 +117,16 @@ form {
 	margin: 4em;
 }
 
+.hover:hover {
+	font-weight: bold;
+}
+
+#white {
+	background-color: white;
+}
+
+
+
+
 
 

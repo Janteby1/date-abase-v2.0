@@ -1,3 +1,25 @@
+function init_map(map_date, latitude, longitude) {
+    // this gets the lat and long from the geocoder below
+    var var_location = new google.maps.LatLng(latitude, longitude);
+
+    var var_mapoptions = {
+        center: var_location,
+        zoom: 17
+    };
+
+    var var_marker = new google.maps.Marker({
+    position: var_location,
+    map: var_map });
+    
+    console.log("here");
+    var var_map = new google.maps.Map(map_date.get(0),
+        var_mapoptions);
+    // the zero will get the element the jquery object is wrapping
+
+    var_marker.setMap(var_map); 
+};
+
+
 $(document).ready(function(){
 	console.log("Hi there!")
 
@@ -269,7 +291,7 @@ $( window ).unload(function() {
     });
 
 
-// area Search Button //
+// Area Search Button //
     $('#answer_div').on('click', "#area_search_button", function(event){
     $("#category_search_div").attr("class", "hide");
     $("#price_search_div").attr("class", "hide");
@@ -297,4 +319,42 @@ $( window ).unload(function() {
     });
 
 
+///// Map Display /////
+    $('#answer_div').on('submit', ".map_button_form", function(event){
+        event.preventDefault();
+
+        var date_id = ($(this).find("[name='date_id']").attr("value")); // find tells it where in the this object to look for the value
+        var map_date = $("#" + date_id) // targets the right div in the DOM that has the same post id as our post FK
+        // console.log(map_date)
+
+        var geocoder = new google.maps.Geocoder();
+        var address = ($(this).find("[name='address']").attr("value")); // get the address from the DOM of the buttom you clicked
+
+        geocoder.geocode({'address': address}, function(results, status) {
+            // this takes the address we got from the DOM and uses google api to get the geocode, then send the geocode to the google maps api
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+                // console.log(latitude);
+                // console.log(longitude);
+                } 
+
+            // map_date.css({"height":"250px"});
+            // map_date.css({"margin-bottom":"1.5em"});
+         
+            init_map(map_date, latitude, longitude);
+
+        }); 
+    })
+
+
+
+
+
+
+
+
 });
+
+
+
