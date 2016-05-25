@@ -18,6 +18,9 @@ urlpatterns = [
     # # here we send the url to the views with the slug id attached to it
     # url(r'^edit/(?P<dates_slug>[A-Za-z0-9\-\_]+)$', views.Edit_Date.as_view(), name="edit"),
     url(r'^delete/(?P<dates_id>[A-Za-z0-9\-\_]+)$', views.Delete_Date.as_view(), name='delete'),
+    url(r'^vote_up/(?P<dates_id>[A-Za-z0-9\-\_]+)$', views.Vote_Up_Date.as_view(), name='vote_up'),
+    url(r'^vote_down/(?P<dates_id>[A-Za-z0-9\-\_]+)$', views.Vote_Down_Date.as_view(), name='vote_down'),
+    url(r'^top$', views.Top_Dates.as_view(), name='top'),
 ]
 
 

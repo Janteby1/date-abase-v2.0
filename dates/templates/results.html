@@ -43,35 +43,51 @@
 			    {% endverbatim %}
 
 				<div class="card-action col s12 m12 l12">
-						<a class="blue-text lighten-1-text hover" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
-						
-						{% verbatim %}
-	                    <form action="" class='map_button_form' id="map_form">
-		                    <input type="hidden" name= "date_id" value="{{id}}">
-		                    <input type="hidden" name= "address" value="{{ address }}">
 
-		                    <button id="white" class="btn blue-text lighten-1-text right z-depth-0 hover" id="map_button" type="submit" name="get_map" value= "Get Map">View Map</button>
-	                    </form>
-			        	{% endverbatim %}
+					<a id="learn_more" class="blue-text lighten-1-text hover left" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
 
-						{% verbatim %}
-	                    <form action="" class='report_button_form'>
-		                    <input type="hidden" name= "report_id" value="{{id}}">
+					{% verbatim %}
+                    <form action="" class='map_button_form' id="map_form">
+	                    <input type="hidden" name= "date_id" value="{{id}}">
+	                    <input type="hidden" name= "address" value="{{ address }}">
 
-		                    <button id="report_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="report">Report</button>
-	                    </form>
-			        	{% endverbatim %}
+	                    <button id="map_button" class="btn blue-text lighten-1-text right z-depth-0 hover" id="map_button" type="submit" name="get_map" value= "Get Map">View Map</button>
+                    </form>
+		        	{% endverbatim %}
 
-			        	{% verbatim %}
-	                    <form action="" class='delete_button_form'>
-		                    <input type="hidden" name= "delete_id" value="{{id}}">
+					{% verbatim %}
+                    <form action="" class='report_button_form'>
+	                    <input type="hidden" name= "report_id" value="{{id}}">
 
-		                    <button id="delete_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="delete">Delete</button>
-	                    </form>
-			        	{% endverbatim %}
+	                    <button id="report_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="report">Report</button>
+                    </form>
+		        	{% endverbatim %}
 
+		        	{% verbatim %}
+                    <form action="" class='vote_up_button_form'>
+	                    <input type="hidden" name= "vote_id" value="{{id}}">
 
-					</div>
+	                    <button id="vote_up_button" class="btn waves-effect waves-light blue-text z-depth-0 hover"  type="submit" name="vote"><i id="thumbs_up" class="material-icons right">thumb_up</i></button>
+                    </form>
+		        	{% endverbatim %}
+
+		        	{% verbatim %}
+                    <form action="" class='vote_down_button_form'>
+	                    <input type="hidden" name= "vote_id" value="{{id}}">
+
+	                    <button id="vote_down_button" class="btn waves-effect waves-light blue-text z-depth-0 hover"  type="submit" name="vote"><i id="thumbs_down" class="material-icons right">thumb_down</i></button>
+                    </form>
+		        	{% endverbatim %}
+
+		        	{% verbatim %}
+                    <form action="" class='delete_button_form'>
+	                    <input type="hidden" name= "delete_id" value="{{id}}">
+
+	                    <button id="delete_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="delete"><i id="trash" class="material-icons right">delete</i></button>
+                    </form>
+		        	{% endverbatim %}
+
+				</div>
 
 					{% verbatim %}
 					<div id="{{id}}report_div" class="hide">

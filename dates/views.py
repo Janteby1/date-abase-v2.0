@@ -203,6 +203,37 @@ class Delete_Date(View):
             return JsonResponse({"success": False})
 
 
+class Vote_Up_Date(View):
+    def post(self, request, dates_id=None):
+        date = Dates.objects.get(id=dates_id)
+
+        if request.user.is_authenticated():
+            date.vote += 1
+            date.save()
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False})
+
+class Vote_Down_Date(View):
+    def post(self, request, dates_id=None):
+        date = Dates.objects.get(id=dates_id)
+
+        if request.user.is_authenticated():
+            date.vote -= 1
+            date.save()
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False})
+
+class Top_Dates(View):
+    def get(self, request, dates_slug=None):
+        # this line gets all the posts that we have in the db and orders them by top votes
+        dates = Dates.objects.filter(show=True).order_by('-vote')[:15]
+        # put all the values into a json dictionary with a method called from the models
+        dates = [date.to_json() for date in dates]
+
+        return JsonResponse({"success": True, 'results': dates})
+
 
 
         

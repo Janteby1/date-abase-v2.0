@@ -114,29 +114,35 @@ form {
 }
 
 .space {
-	margin: 4em;
+	margin: 1.5em;
 }
 
 .hover:hover {
 	font-weight: bold;
 }
 
-#white {
+#learn_more {
+	padding-top: .75em;
+}
+
+#map_button {
 	background-color: white;
+	padding: .2em;
+}
+
+.map_button_form {
+	display: inline-block;
+	float: left;
 }
 
 #report_button {
 	background-color: white;
-}
-
-#map_form {
-	display: inline-block;
-	float: right;
+	padding: .2em;
 }
 
 .report_button_form {
 	display: inline;
-	margin: 1em;
+	margin: .5em;
 }
 
 #delete_button {
@@ -145,7 +151,43 @@ form {
 
 .delete_button_form {
 	display: inline;
-	margin: 1em;
+	margin: .5em;
+	float: right;
+}
+
+#vote_up_button {
+	background-color: white;
+}
+
+.vote_up_button_form {
+	display: inline;
+	margin: .5em;
+	float: right;
+}
+
+#vote_down_button {
+	background-color: white;
+}
+
+.vote_down_button_form {
+	display: inline;
+	margin: .5em;
+	float: right;
+}
+
+#thumbs_up {
+	font-size: 2em;
+	margin: 0em;
+}
+
+#thumbs_down {
+	font-size: 2em;
+	margin: 0em;
+}
+
+#trash {
+	font-size: 2em;
+	margin: 0em;
 }
 
 
