@@ -195,11 +195,12 @@ class Delete_Date(View):
     def post(self, request, dates_id=None):
         date = Dates.objects.get(id=dates_id)
 
-        date.show = False
-        date.save()
-        return JsonResponse({"success": True})
-
-
+        if request.user.is_authenticated():
+            date.show = False
+            date.save()
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False})
 
 
 
