@@ -389,12 +389,94 @@ $( window ).unload(function() {
     } else {
         alert("Ok, Date idea will be kept");
     }
+});
+
+
+//// Vote Up / Like Button ////
+    $('#answer_div').on('submit', ".vote_up_button_form", function(event){
+    event.preventDefault();
+
+    var check = confirm("Would you like to UP vote this date?");
+
+    if (check == true) {
+        var vote_id = ($(this).find("[name='vote_id']").attr("value")); // find tells it where in the this object to look for the value
+
+        $.ajax({
+            method: "POST",
+            url: ("vote_up/" + vote_id),
+            // data: query_string,
+        }).done(function(data, status){
+
+            if (data.success){
+                ////// if answers came back ////////
+                alert("Date UP voted! \nThank you! ");
+                window.scrollTo(0, 0);
+            } else {
+                var template = $('#403-template').html();
+                var renderM = Mustache.render(template);
+                $('#answer_div').html(renderM);  
+                window.scrollTo(0, 0);
+            }
+            });
+
+    } else {
+        alert("Ok, Date idea will be kept");
+    }
+    });
+
+
+//// Vote Down Button ////
+    $('#answer_div').on('submit', ".vote_down_button_form", function(event){
+    event.preventDefault();
+
+    var check = confirm("Would you like to DOWN vote this date?");
+
+    if (check == true) {
+        var vote_id = ($(this).find("[name='vote_id']").attr("value")); // find tells it where in the this object to look for the value
+
+        $.ajax({
+            method: "POST",
+            url: ("vote_down/" + vote_id),
+            // data: query_string,
+        }).done(function(data, status){
+
+            if (data.success){
+                ////// if answers came back ////////
+                alert("Date DOWN voted! \nThank you! ");
+                window.scrollTo(0, 0);
+            } else {
+                var template = $('#403-template').html();
+                var renderM = Mustache.render(template);
+                $('#answer_div').html(renderM);  
+                window.scrollTo(0, 0);
+            }
+            });
+
+    } else {
+        alert("Ok, Date idea will be kept");
+    }
 
     });
 
 
+// Top Dates Button //
+    $('#answer_div').on('click', '#top_dates',function(event){
+    event.preventDefault();
 
+    $.ajax({
+        method: "GET",
+        url: "top",
+    }).done(function(data, status){
 
+    if (data.success){
+      ////// if answers came back ////////
+        var template = $('#results-template').html();
+        var renderM = Mustache.render(template, {"results":data.results});
+        $('#answer_div').html(renderM);
+        window.scrollTo(0, 0);
+        }
+        });
+    });
 
 });
 

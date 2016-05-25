@@ -64,7 +64,7 @@ class Dates(models.Model):
     maps = models.URLField (max_length=200, null = True, default = None,)
     created_at = models.DateTimeField(default = timezone.now, editable=False)
     updated_at = models.DateTimeField()
-    count = models.IntegerField(default = 0)
+    vote = models.IntegerField(default = 0)
     user = models.ForeignKey(User, null = True, default = 1)
     slug = models.SlugField(max_length=40)
     show = models.BooleanField(default=True)
@@ -93,7 +93,7 @@ class Dates(models.Model):
             "maps": self.maps,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
-            "count": self.count,
+            "vote": self.vote,
             "slug": self.slug,
             "show": self.show,
         }
