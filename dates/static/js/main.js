@@ -378,8 +378,14 @@ $( window ).unload(function() {
                 ////// if answers came back ////////
                 alert("Ok, Date Idea Deleted \nRefresh page to see updated results");
                 window.scrollTo(0, 0);
-              }
+            } else {
+                var template = $('#403-template').html();
+                var renderM = Mustache.render(template);
+                $('#answer_div').html(renderM);  
+                window.scrollTo(0, 0);
+            }
             });
+
     } else {
         alert("Ok, Date idea will be kept");
     }
