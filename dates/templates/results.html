@@ -7,6 +7,8 @@
 	
 	{% verbatim %}
 	{{#results}}
+		{{#show}}
+
 	<div class="row">
 		<div class="col s12 m12 l12">
 			<div class="card hoverable" id="results_card">
@@ -56,9 +58,18 @@
 	                    <form action="" class='report_button_form'>
 		                    <input type="hidden" name= "report_id" value="{{id}}">
 
-		                    <button id="report_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="get_map">Report</button>
+		                    <button id="report_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="report">Report</button>
 	                    </form>
 			        	{% endverbatim %}
+
+			        	{% verbatim %}
+	                    <form action="" class='delete_button_form'>
+		                    <input type="hidden" name= "delete_id" value="{{id}}">
+
+		                    <button id="delete_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="delete">Delete</button>
+	                    </form>
+			        	{% endverbatim %}
+
 
 					</div>
 
@@ -67,26 +78,26 @@
 				        <form action="" id='report_form' method="POST">
 				        	<input type="hidden" name= "report_id" value="{{id}}">
 
-				                <div class="col s10 center">				               	
+				                <div class="col s12 m3 l4 center">				               	
 				                    <p>Reason: </p>                
 				                    <p>
-				                      <input class="with-gap" name="report" value="closed" type="checkbox" id="closed"  />
-				                      <label for="closed">Closed</label>
+				                      <input class="with-gap" name="{{id}}report" value="closed" type="checkbox" id="{{id}}closed"  />
+				                      <label for="{{id}}closed">Closed</label>
 				                    </p>
 				                    <p>
-				                      <input class="with-gap" name="report" value="incorrect" type="checkbox" id="incorrect"  />
-				                      <label for="incorrect">Incorrect Information</label>
+				                      <input class="with-gap" name="{{id}}report" value="incorrect" type="checkbox" id="{{id}}incorrect"  />
+				                      <label for="{{id}}incorrect">Incorrect Information</label>
 				                    </p>
 				                    <p>
-				                      <input class="with-gap" name="report" value="repeat" type="checkbox" id="repeat"  />
-				                      <label for="repeat">Repeated Entry</label>
+				                      <input class="with-gap" name="{{id}}report" value="repeat" type="checkbox" id="{{id}}repeat"  />
+				                      <label for="{{id}}repeat">Repeated Entry</label>
 				                    </p><br>
 				                </div>
 
-				                <div class="col s2 center">
-				                <br><br>
-				                    <button class="btn-floating waves-effect waves-light blue lighten-1" type="submit" name="action"><i class="material-icons right">send</i>
-				                    </button>
+				                <div class="col s12 m2 l2 center">
+				                	<br><br>
+				                    <button class="btn-floating waves-effect waves-light red hover lighten-1" type="submit" name="action"><i class="material-icons right">send</i>
+				                    </button><br><br>
 				                </div>
 				        </form>
 				    </div>
@@ -109,6 +120,7 @@
 		</div>
 	</div>
 	{% verbatim %}
+	{{/show}}
 	{{/results}}
 
 

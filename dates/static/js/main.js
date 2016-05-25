@@ -343,7 +343,7 @@ $( window ).unload(function() {
         }); 
     })
 
-// Report Button //
+//// Report Button ////
     $('#answer_div').on('click', ".report_button_form", function(event){
     event.preventDefault();
     var report_id = ($(this).find("[name='report_id']").attr("value")); // find tells it where in the this object to look for the value
@@ -358,6 +358,33 @@ $( window ).unload(function() {
     $("#" + report_id + 'thanx_div').attr("class", "display");
     });
 
+
+//// Delete Button ////
+    $('#answer_div').on('submit', ".delete_button_form", function(event){
+    event.preventDefault();
+
+    var check = confirm("Are you sure you want to delete this date?");
+
+    if (check == true) {
+        var delete_id = ($(this).find("[name='delete_id']").attr("value")); // find tells it where in the this object to look for the value
+
+        $.ajax({
+            method: "POST",
+            url: ("delete/" + delete_id),
+            // data: query_string,
+        }).done(function(data, status){
+
+            if (data.success){
+                ////// if answers came back ////////
+                alert("Ok, Date Idea Deleted \nRefresh page to see updated results");
+                window.scrollTo(0, 0);
+              }
+            });
+    } else {
+        alert("Ok, Date idea will be kept");
+    }
+
+    });
 
 
 

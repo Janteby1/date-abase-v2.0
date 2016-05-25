@@ -184,12 +184,20 @@ class SearchDate_Area(View):
             dates = [date.to_json() for date in dates]
 
             if dates:
-                return JsonResponse({
-                    "success": True, 'results': dates})
+                return JsonResponse({"success": True, 'results': dates})
             else:
                 return JsonResponse({"success": True})
         else:
             return JsonResponse ({"Message":"Invalid information", 'success' : False })
+
+
+class Delete_Date(View):
+    def post(self, request, dates_id=None):
+        date = Dates.objects.get(id=dates_id)
+
+        date.show = False
+        date.save()
+        return JsonResponse({"success": True})
 
 
 
