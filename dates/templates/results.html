@@ -7,6 +7,8 @@
 	
 	{% verbatim %}
 	{{#results}}
+		{{#show}}
+
 	<div class="row">
 		<div class="col s12 m12 l12">
 			<div class="card hoverable" id="results_card">
@@ -14,46 +16,111 @@
 				<div class="col s12 m4 l4">
 					<br>
 		       		<div class="card-title blue-text" id="bigger">{{ place }}<br></div>
+	       			<br>
+	       			<div class="entry"><strong>Contact: </strong>{{ phone }}</div>
+			        <div class="entry"><strong>Address: </strong>{{ address }}</div>
+			        <br>
 				</div>
 
 				<div class="col s12 m4 l4">
 					<div class="card-content">
 				        <div class="entry" id="neighborhood"></div>
-				        <div class="entry"><strong>Contact: </strong>{{ phone }}</div>
-				        <div class="entry"><strong>Address: </strong>{{ address }}</div>
-				        <br>
+				        <br><br>
 				        <div class="entry"><strong>Price: </strong>{{ price }}</div>
 				        <div class="entry"><strong>Parking: </strong>{{ parking }}</div>
 				        <div class="entry"><strong>Website: </strong>{{ website }}</div>
+				        <br>
 			        {% endverbatim %}
 					</div>
 				</div>	
-
+				
+				{% verbatim %}
 				<div class="col s12 m4 l4">
-					<div class="map_div" id= "{{date.id}}">
+					<div class="map_div" id= "{{id}}">
 	                    <!-- this is where everything from mustache will render -->
 	                </div>
 				</div>	
+			    {% endverbatim %}
 
 				<div class="card-action col s12 m12 l12">
-						<a class="blue-text lighten-1-text hover" id="bold_hover" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
+						<a class="blue-text lighten-1-text hover" href="http://www.google.com/search?!go&q={% verbatim %}{{ place }}{% endverbatim %}&btnI&sourceid=chrome&ie=UTF-8" target="_blank">Learn More</a>
 						
 						{% verbatim %}
-	                    <form action="" class='map_button_form'>
-	                    <input type="hidden" name= "date_id" value="{{id}}">
-	                    <input type="hidden" name= "address" value="{{ address }}">
+	                    <form action="" class='map_button_form' id="map_form">
+		                    <input type="hidden" name= "date_id" value="{{id}}">
+		                    <input type="hidden" name= "address" value="{{ address }}">
 
-	                    <button id="white" class="btn blue-text lighten-1-text right" id="map_button" type="submit" name="get_map" value= "Get Map">Map View</button>
+		                    <button id="white" class="btn blue-text lighten-1-text right z-depth-0 hover" id="map_button" type="submit" name="get_map" value= "Get Map">View Map</button>
 	                    </form>
 			        	{% endverbatim %}
 
-						<a class="blue-text lighten-1-text hover right" href="#">Street View</a>
+						{% verbatim %}
+	                    <form action="" class='report_button_form'>
+		                    <input type="hidden" name= "report_id" value="{{id}}">
+
+		                    <button id="report_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="report">Report</button>
+	                    </form>
+			        	{% endverbatim %}
+
+			        	{% verbatim %}
+	                    <form action="" class='delete_button_form'>
+		                    <input type="hidden" name= "delete_id" value="{{id}}">
+
+		                    <button id="delete_button" class="btn waves-effect waves-light red-text z-depth-0 hover"  type="submit" name="delete">Delete</button>
+	                    </form>
+			        	{% endverbatim %}
+
+
 					</div>
+
+					{% verbatim %}
+					<div id="{{id}}report_div" class="hide">
+				        <form action="" id='report_form' method="POST">
+				        	<input type="hidden" name= "report_id" value="{{id}}">
+
+				                <div class="col s12 m3 l4 center">				               	
+				                    <p>Reason: </p>                
+				                    <p>
+				                      <input class="with-gap" name="{{id}}report" value="closed" type="checkbox" id="{{id}}closed"  />
+				                      <label for="{{id}}closed">Closed</label>
+				                    </p>
+				                    <p>
+				                      <input class="with-gap" name="{{id}}report" value="incorrect" type="checkbox" id="{{id}}incorrect"  />
+				                      <label for="{{id}}incorrect">Incorrect Information</label>
+				                    </p>
+				                    <p>
+				                      <input class="with-gap" name="{{id}}report" value="repeat" type="checkbox" id="{{id}}repeat"  />
+				                      <label for="{{id}}repeat">Repeated Entry</label>
+				                    </p><br>
+				                </div>
+
+				                <div class="col s12 m2 l2 center">
+				                	<br><br>
+				                    <button class="btn-floating waves-effect waves-light red hover lighten-1" type="submit" name="action"><i class="material-icons right">send</i>
+				                    </button><br><br>
+				                </div>
+				        </form>
+				    </div>
+
+				    <div id="{{id}}thanx_div" class="hide">
+		                <div class="col s10 center">
+		                    <p>
+		                    Report Submitted. We will review this matter and update it as soon as possible. 
+		                    <br>
+		                    Thank you for making Date-abase a better experience for everyone!
+		                    <br><br>
+		                    </p>
+		                </div>
+				    </div>
+			        {% endverbatim %}
+
+
 				</div>	
 			</div>
 		</div>
 	</div>
 	{% verbatim %}
+	{{/show}}
 	{{/results}}
 
 

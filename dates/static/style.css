@@ -68,16 +68,16 @@ form {
 }
 
 #spacer {
-	padding-top: 30vh;
+	padding-top: 10vh;
 }
 
-#banner {
+/*#banner {
 	opacity: .75;
 }
+*/
 
-#banner h2{
-	color: #42A5F5;
-	opacity: 2.0;
+#banner #blue{
+	color: #2a99f4;
 }
 
 #grey_hover:hover {
@@ -125,6 +125,28 @@ form {
 	background-color: white;
 }
 
+#report_button {
+	background-color: white;
+}
+
+#map_form {
+	display: inline-block;
+	float: right;
+}
+
+.report_button_form {
+	display: inline;
+	margin: 1em;
+}
+
+#delete_button {
+	background-color: white;
+}
+
+.delete_button_form {
+	display: inline;
+	margin: 1em;
+}
 
 
 
