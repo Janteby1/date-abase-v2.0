@@ -44,19 +44,20 @@ $( window ).unload(function() {
     });
 
 
-// Register Button //
-    // $("#register_button").on('click', function(event){
-    //   event.preventDefault();
-    //   window.location.replace("/index")
+//// Register Button ////
+    $("#register_button").on('click', function(event){
+      event.preventDefault();
+      // window.location.replace("/index")
 
-    // function temp(){
-    //     var template = $('#register-template').html();
-    //     var renderM = Mustache.render(template, {});
-    //     $('#answer_div').html(renderM);
-    //     window.scrollTo(0, 0);
-    //     }
-    //   setTimeout(temp(), 2000);
-    // });
+      if (window.location.replace("/index")){
+        console.log ("in if")
+        var template = $('#register-template').html();
+        var renderM = Mustache.render(template, {});
+        $('#answer_div').html(renderM);
+        window.scrollTo(0, 0);
+      }
+
+    });
 
 
 ///// Register /////
@@ -455,7 +456,6 @@ $( window ).unload(function() {
     } else {
         alert("Ok, Date idea will be kept");
     }
-
     });
 
 
