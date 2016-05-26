@@ -206,16 +206,22 @@ form {
 	}
 	#delete_button {
 		padding: 0em;
+		margin-left: .3em;
+		margin-right: .3em;
 	}
 	#vote_down_button {
 		padding: 0em;
+		margin-left: .3em;
+		margin-right: .3em;
 	}
 	#vote_up_button {
 		padding: 0em;
+		margin-left: .3em;
+		margin-right: .3em;
 	}
 	.map_button_form {
-		margin-left: 1em;
-		margin-right: 1em;
+		margin-left: 1.3em;
+		margin-right: 1.3em;
 	}
 	#learn_more {
 		margin: 0em;
