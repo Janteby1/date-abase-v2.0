@@ -37,6 +37,15 @@ $( window ).unload(function() {
     console.log("again")
 });
 
+///// Register redirect button from landing /////
+    var yes = window.location.search.search("register")
+    if (yes === 1){ //very cool!!
+        var template = $('#register-template').html();
+        var renderM = Mustache.render(template, {});
+        $('#answer_div').html(renderM);
+        window.scrollTo(0, 0);
+    }
+
 
 ///// About /////
     $('#nav').on('click', "#about", function(event){
@@ -51,16 +60,7 @@ $( window ).unload(function() {
 //// Register Button ////
     $("#register_button").on('click', function(event){
       event.preventDefault();
-      // window.location.replace("/index")
-
-      if (window.location.replace("/index")){
-        console.log ("in if")
-        var template = $('#register-template').html();
-        var renderM = Mustache.render(template, {});
-        $('#answer_div').html(renderM);
-        window.scrollTo(0, 0);
-      }
-
+      window.location.replace("/index?register")
     });
 
 
