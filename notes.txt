@@ -1,4 +1,5 @@
 Need to fix login button on landing page
+Need to host 
 
 Want to add multiple search inputs
 Add comments by user 
