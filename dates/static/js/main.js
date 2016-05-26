@@ -22,10 +22,14 @@ function init_map(map_date, latitude, longitude) {
 $(document).ready(function(){
 	console.log("Hi there!")
 
-	$(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.slider').slider({full_width: true});
     $('select').material_select();
+  $('.button-collapse').sideNav({
+      edge: 'left', 
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
 
 // goes to top of page on reload
 $( window ).unload(function() {

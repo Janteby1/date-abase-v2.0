@@ -190,7 +190,44 @@ form {
 	margin: 0em;
 }
 
+.adjustable {
+	padding-top: 5em;
+	padding-left: 2em;
+	padding-right: 2em;
+}
 
+#landing {
+	padding-top: 6.5em;
+}
+
+@media only screen and (max-width: 600px) {
+	.adjustable {
+		padding: 0em;
+	}
+	#delete_button {
+		padding: 0em;
+	}
+	#vote_down_button {
+		padding: 0em;
+	}
+	#vote_up_button {
+		padding: 0em;
+	}
+	.map_button_form {
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+	#learn_more {
+		margin: 0em;
+	}
+	#title{
+		font-size: 3em;
+	}
+	#landing {
+		padding-top: 0em;
+	}
+
+}
 
 
 
