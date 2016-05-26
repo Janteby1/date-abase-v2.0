@@ -1,0 +1,196 @@
+#answer_div {
+	/*margin-left: 1em;*/
+}
+
+.brand-logo {
+	padding-left: 1em !important; 
+}
+
+.parallax-container {
+	height: 50vh;
+	margin-left: -3em; 
+	margin-right: -3em;
+}
+
+form {
+	margin-right: 3em;
+	margin-left: 3em;
+}
+
+.username {
+	font-style: italic;
+}
+
+#welcome {
+	color: #42A5F5;
+}
+
+#likes {
+	text-align: right;
+}
+
+#search_button {
+	margin-left: 1em;
+}
+
+.tag {
+	font-weight: bold;
+}
+
+.page-footer {
+	margin:0em !important;
+	position:relative;
+	bottom:0;
+}
+
+#home {
+	margin-left:3em;
+}
+
+#blur {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  opacity: .75;
+}
+
+.clear {
+  filter: blur(0px);
+  color:white;
+}
+
+#background {
+	background: url("date.4d07d34f21b2.jpg") no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+#spacer {
+	padding-top: 10vh;
+}
+
+/*#banner {
+	opacity: .75;
+}
+*/
+
+#banner #blue{
+	color: #2a99f4;
+}
+
+#grey_hover:hover {
+	font-weight:bold;
+}
+
+#bold{
+	font-weight: bold;
+}
+
+#about_card {
+	padding: 2em;
+}
+
+#username {
+	font-style: italic;
+	color: black;
+}
+
+.directions {
+	color: grey;
+	font-size: .75em;
+	font-style: italic;
+}
+
+#bigger {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#small {
+	font-size: .75em;
+	font-style: italic;
+}
+
+.space {
+	margin: 1.5em;
+}
+
+.hover:hover {
+	font-weight: bold;
+}
+
+#learn_more {
+	padding-top: .75em;
+}
+
+#map_button {
+	background-color: white;
+	padding: .2em;
+}
+
+.map_button_form {
+	display: inline-block;
+	float: left;
+}
+
+#report_button {
+	background-color: white;
+	padding: .2em;
+}
+
+.report_button_form {
+	display: inline;
+	margin: .5em;
+}
+
+#delete_button {
+	background-color: white;
+}
+
+.delete_button_form {
+	display: inline;
+	margin: .5em;
+	float: right;
+}
+
+#vote_up_button {
+	background-color: white;
+}
+
+.vote_up_button_form {
+	display: inline;
+	margin: .5em;
+	float: right;
+}
+
+#vote_down_button {
+	background-color: white;
+}
+
+.vote_down_button_form {
+	display: inline;
+	margin: .5em;
+	float: right;
+}
+
+#thumbs_up {
+	font-size: 2em;
+	margin: 0em;
+}
+
+#thumbs_down {
+	font-size: 2em;
+	margin: 0em;
+}
+
+#trash {
+	font-size: 2em;
+	margin: 0em;
+}
+
+
+
+
+
