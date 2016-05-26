@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "dates",
-    "bootstrapform",
+    # "bootstrapform",
 ]
 
 MIDDLEWARE_CLASSES = [
